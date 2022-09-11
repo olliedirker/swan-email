@@ -1,0 +1,19 @@
+// this is the purple company colors
+#764e9f
+#9e79c4
+#482f56
+
+//green blue colors
+#004155
+
+//divider pre formatted
+              <!-- Divider : BEGIN -->
+            <tr class="trbgwhite">
+              <td style="padding-left: 20px; padding-right: 20px; text-align: center; font-family:roboto, helvetica neue, helvetica, arial, sans-serif; color: #808080;"><p><hr></hr></p></td>
+            </tr>
+             <!-- Divider  : END -->
+
+             p {
+              margin-top: 15px;
+              margin-bottom: 15px;
+          }
