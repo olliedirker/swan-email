@@ -20,3 +20,11 @@
               margin-top: 15px;
               margin-bottom: 15px;
           }
+
+                    <!-- 1 Column Text : BEGIN -->
+                    <tr>
+                      <td style="padding-left: 40px; padding-right: 40px; padding-top:10px; padding-bottom:10px; text-align: justify; font-family: sans-serif; font-size: 16px; mso-height-rule: exactly; line-height: 27px; color: #000000;">
+                          <p style="padding-top:0px;"> Dear Travel Partner,</p>
+                        <p style="padding-bottom:0px; margin-bottom: 0px;">Invite your clients to sail with us to visit America’s Historic Seaports. The voyage starts with an overnight in Nova Scotia then sails through New England where guests will view the Fall Foliage and visit the charming ports of Bar Harbor, Gloucester, and Newport. Continuing down the East Coast reliving history with visits to New York, Norfolk, Charleston and more. Joining the voyage will be guest lecturers specializing in US History including the Civil War. We are offering 20% commission on this voyage for a limited time and as always, there are no NCFs or additional taxes.&nbsp;</strong></p>
+                      </td>
+                    </tr>
