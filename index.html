@@ -1,438 +1,564 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swan Email template</title>
-<!-- CSS Reset -->
-<style type="text/css">
-    /* What it does: Remove spaces around the email design added by some email clients. */
-          /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
-    html, body {
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 100% !important;
-        width: 100% !important;
-        font-family: sans-serif;
-    }
-    /* What it does: Stops email clients resizing small text. */
-    * {
-        -ms-text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%;
-    }
-    /* What it does: Forces Outlook.com to display emails full width. */
-    .ExternalClass {
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Swan email template</title>
+    <style>
+      @media only screen and (max-width: 620px) {
+        table.body h1 {
+          font-size: 28px !important;
+          margin-bottom: 10px !important;
+        }
+
+        table.body p,
+        table.body ul,
+        table.body ol,
+        table.body td,
+        table.body span,
+        table.body a {
+          font-size: 16px !important;
+        }
+
+        table.body .wrapper,
+        table.body .article {
+          padding: 10px !important;
+        }
+
+        table.body .content {
+          padding: 0 !important;
+        }
+
+        table.body .container {
+          padding: 0 !important;
+          width: 100% !important;
+        }
+
+        table.body .main {
+          border-left-width: 0 !important;
+          border-radius: 0 !important;
+          border-right-width: 0 !important;
+        }
+
+        table.body .btn table {
+          width: 100% !important;
+        }
+
+        table.body .btn a {
+          width: 100% !important;
+        }
+
+        table.body .img-responsive {
+          height: auto !important;
+          max-width: 100% !important;
+          width: auto !important;
+        }
+        .It {
+          font-size: 14px !important;
+        }
+      }
+      @media all {
+        .ExternalClass {
+          width: 100%;
+        }
+
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+          line-height: 100%;
+        }
+
+        .apple-link a {
+          color: inherit !important;
+          font-family: inherit !important;
+          font-size: inherit !important;
+          font-weight: inherit !important;
+          line-height: inherit !important;
+          text-decoration: none !important;
+        }
+
+        #MessageViewBody a {
+          color: inherit;
+          text-decoration: none;
+          font-size: inherit;
+          font-family: inherit;
+          font-weight: inherit;
+          line-height: inherit;
+        }
+
+        .btn-primary table td:hover {
+          background-color: #34495e !important;
+        }
+
+        .btn-primary a:hover {
+          background-color: #34495e !important;
+          border-color: #34495e !important;
+        }
+        a:link {
+          text-decoration: none;
+        }
+
+        a:visited {
+          text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        a:active {
+          text-decoration: underline;
+        }
+      }
+    </style>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body
+    style="
+      background-color: #f6f6f6;
+      font-family: sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 0;
+      padding: 0;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    "
+  >
+    <span
+      class="preheader"
+      style="
+        color: transparent;
+        display: none;
+        height: 0;
+        max-height: 0;
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+        visibility: hidden;
+        width: 0;
+      "
+      >This is preheader text. Some clients will show this text as a
+      preview.</span
+    >
+    <table
+      role="presentation"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      class="body"
+      style="
+        border-collapse: separate;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+        background-color: #f6f6f6;
         width: 100%;
-    }
-    /* What is does: Centers email on Android 4.4 */
-    div[style*="margin: 16px 0"] {
-        margin: 0 !important;
-    }
-    /* What it does: Stops Outlook from adding extra spacing to tables. */
-    table, td {
-        mso-table-lspace: 0pt !important;
-        mso-table-rspace: 0pt !important;
-    }
-    /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
-    table {
-        border-spacing: 0 !important;
-        border-collapse: collapse !important;
-        table-layout: fixed !important;
-        margin: 0 auto !important;
-    }
-    table table table {
-        table-layout: auto;
-    }
-    /* What it does: Uses a better rendering method when resizing images in IE. */
-    img {
-        -ms-interpolation-mode: bicubic;
-    }
-    /* What it does: Overrides styles added when Yahoo's auto-senses a link. */
-    .yshortcuts a {
-        border-bottom: none !important;
-    }
-    /* What it does: Another work-around for iOS meddling in triggered links. */
-    a[x-apple-data-detectors] {
-        color: inherit !important;
-    }
-
-    </style>
-    
-    <!-- Progressive Enhancements -->
-    <style type="text/css">
-    /* What it does: Hover styles for buttons */
-    .button-td, .button-a {
-        transition: all 100ms ease-in;
-    }
-    .button-td:hover, .button-a:hover {
-        background: #004155 !important;
-        border-color: #004155 !important;
-    }
-    .es-button:hover, .es-button-border{
-        background: #004155;
-        border-color:#004155;
-    }
-    
-    button-td2, .button-b {
-        transition: all 100ms ease-in;
-    }
-    .button-td2:hover, .button-b:hover {
-        background: #482f56 !important;
-        border-color: #482f56 !important;
-    }
-    
-    /* Media Queries */
-    @media screen and (max-width: 600px) {
-    .email-container {
-        width: 100% !important;
-    }
-    /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
-    .fluid, .fluid-centered {
-        max-width: 100% !important;
-        height: auto !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    /* And center justify these ones. */
-    .fluid-centered {
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    /* What it does: Forces table cells into full-width rows. */
-    .stack-column, .stack-column-center {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        direction: ltr !important;
-    }
-    /* And center justify these ones. */
-    .stack-column-center {
-        text-align: center !important;
-    }
-    /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
-    .center-on-narrow {
-        text-align: center !important;
-        display: block !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        float: none !important;
-    }
-    table.center-on-narrow {
-        display: inline-block !important;
-    }}
-a{
-        color: #E9AB60;
-        text-decoration: none; 
-    }
-    .background-img{
-       background-image:url( "https://swanhellenic.filecamp.com/static/thumbs/dlF9qdmCs63VhVpq-medium.jpg");
-       background-repeat:no-repeat;
-       background-position: top right;
-    
-
-    }
-    .it-head{
-        text-align: left;
-    }
-    </style>
-    <script src="https://kit.fontawesome.com/f5b164ace4.js" crossorigin="anonymous"></script>
-    
-    </head>
-    <body bgcolor="#e0e0e0" width="100%" style="margin: 0;" yahoo="yahoo" >
-    <table bgcolor="#004155" cellpadding="0" cellspacing="0" height="100%" width="600" style="border-collapse:collapse; border-color:#808080 ; overflow: hidden;">
+      "
+      width="100%"
+      bgcolor="#f6f6f6"
+    >
       <tr>
-    
-      <td>
-      <center style="width: 100%;">
-    
-        <!-- Visually Hidden Preheader Text : BEGIN -->
-        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">You're a step closer to sailing along the Eastern Coast and stopping at America's Historic Seaports.</div>
-        <!-- Visually Hidden Preheader Text : END -->
-    
-        <!-- View in Browser : BEGIN -->
-        <table align="center" width="600" class="email-container">
-          <tr>
-            <td style="text-align: center; font-family: sans-serif; font-size: 13px; mso-height-rule: exactly; line-height: 20px; color: #999998; background-color: #e0e0e0;"><p><a style="text-align: center; font-family: sans-serif; font-size: 13px; mso-height-rule: exactly; line-height: 13px; color: #999998; background-color: #e0e0e0;" href="${Message.AccessibilityLink}">View this email in your browser</a></p></td>
-          </tr>
-        </table>
-        <!-- View in Browser : END -->
-   
-        <!-- Email Header : BEGIN -->
-        <table align="center" width="600" class="email-container">
-          <tr>
-            <td style="padding: 10px 40px; text-align: center;"><a href="https://swanhellenic.com"><img src="https://swanhellenic.filecamp.com/uniq/njUVL0P4ZBOIwkFM.png" width="160" height="80" alt="Swan Hellenic Logo" border="0" class="fa-beat"></a></td>
-          </tr>
-        </table>
-        <!-- Email Header : END -->
-    
-        <!-- Email Body : BEGIN -->
-        <table cellspacing="0" cellpadding="0" border="0" align="center" width="600" class="email-container">
-    
-          <!-- Header Image, Flush : BEGIN -->
-          <tr> 
-            <td align="center" style="padding: 0;Margin:0;font-size:0px; "><a target="_blank" href="https://www.swanhellenic.com/cruise/vega-halifax-miami-2022-oct-21?seats=2#?utm_campaign=tradeHISTORIC-SEAPORTS-06027&amp;utm_medium=email&amp;utm_source=mindbox" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#E9AB60;font-size:16px;"><img class="adapt-img" src="https://i2.mindbox.cloud/eml/33142/148115/2.jpeg" alt="America's Historic Cities of the Sea Halifax to Miami" style="display:block;border: 1px;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; border-radius: 50%;" width="450" title="America's Historic Cities of the Sea Halifax to Miami" height="auto"></a></td> 
-           </tr> 
-          <!-- Header Image, Flush : END -->
-          
-    
-         
-          
+        <td
+          style="font-family: sans-serif; font-size: 14px; vertical-align: top"
+          valign="top"
+        >
+          &nbsp;
+        </td>
+        <td
+          class="container"
+          style="
+            font-family: sans-serif;
+            font-size: 14px;
+            vertical-align: top;
+            display: block;
+            max-width: 580px;
+            padding: 10px;
+            width: 580px;
+            margin: 0 auto;
+          "
+          width="580"
+          valign="top"
+        >
+          <div
+            class="content"
+            style="
+              box-sizing: border-box;
+              display: block;
+              margin: 0 auto;
+              max-width: 580px;
+              padding: 10px;
+            "
+          >
+            <!-- START CENTERED WHITE CONTAINER -->
+            <table
+              role="presentation"
+              class="main"
+              style="
+                border-collapse: separate;
+                mso-table-lspace: 0pt;
+                mso-table-rspace: 0pt;
+                background: #004155;
+                border-radius: 3px;
+                width: 100%;
+              "
+              width="100%"
+            >
+              <!--Start title area-->
 
-          <div class="background-img">
-              
-         <!-- Featured Itinerary Header : BEGIN -->
-        <tr class="trbgwhite">
-          <td style="margin-top: 0;margin-bottom: 0; padding-left: 40px; padding-right: 40px; padding: top 0; padding-bottom:0; text-align: center; font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:20px;font-style:normal;font-weight:bold; mso-height-rule: exactly; line-height: 26px; color: #e0e0e0;"><p><strong>AMERICA'S HISTORIC SEAPORTS<BR>ITINERARY</strong></p></td>
-        </tr>
-            <!-- Featured Itinerary Header  : END -->
+              <!-- START MAIN CONTENT AREA -->
+              <tr>
+                <td
+                  class="wrapper"
+                  style="
+                    font-family: sans-serif;
+                    font-size: 14px;
+                    vertical-align: top;
+                    box-sizing: border-box;
+                    padding: 20px;
+                  "
+                  valign="top"
+                >
+                  <table
+                    role="presentation"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    style="
+                      border-collapse: separate;
+                      mso-table-lspace: 0pt;
+                      mso-table-rspace: 0pt;
+                      width: 100%;
+                    "
+                    width="100%"
+                    class="body"
+                  >
+                    <tr width="100%">
+                      <td
+                        style="text-align: left"
+                        class="text-start"
+                        width="160"
+                        height="80"
+                      >
+                        <a href="https://swanhellenic.com"
+                          ><img
+                            src="https://swanhellenic.filecamp.com/uniq/oRyoTpnV6716PvKY.png"
+                            width="160"
+                            height="80"
+                            alt="Swan Hellenic Logo"
+                            border="0"
+                            class="border rounded"
+                            style="background-color: #482f56"
+                        /></a>
+                      </td>
 
+                      <td
+                        class="text-end text-top"
+                        style="text-align: center;
+                        vertical-align: top; 
+                        padding-top: 10px;"
+                      >
+                        <a
+                          style="
+                            background-color: #482f56;
 
-            <!-- Itinerary: BEGIN -->
-                   
-                 <tr> 
-                  <td align="left" style="padding-top:0;padding-left:20px;padding-right:20px;padding-bottom: 20px;Margin:0;"> 
-                   <!--[if mso]><table style="width:560px" cellpadding="0" cellspacing="0"><tr><td style="width:268px" valign="top"><![endif]--> 
-    
-                   <!--[if mso]></td><td style="width:20px"></td><td style="width:272px" valign="top"><![endif]--> 
-                   <table class="es-right" cellspacing="0" cellpadding="0" align="center" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right;"> 
-                     <tbody>
-                      <td class="es-m-p20b" align="center" style="padding:0;Margin:0;width:560px"> 
-                       <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
- 
-                                <tr class="it-head"> 
-                                <td style="padding:0;Margin:0;padding-top:5px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0;"><strong>Day 1:</strong> Halifax Nova Scotia, Canada</h2></td> 
-                                
-                            </tr> 
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 2:</strong> Halifax Nova Scotia, Canada</h2></td> 
-                             
-                            </tr>  
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 3:</strong> Bar Harbor, Maine</h2></td> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 4: </strong>Glouster, Massachusetts</h2></td>    
-                            </tr> 
-           
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"></td> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 5: </strong>Newport, Rhode Island</h2></td> 
-                               </tr> 
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 6:</strong> New York City, New York</h2></td> 
-                               </tr> 
-
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong> Day 7:</strong> At Sea</h2></td> 
-                               </tr> 
-          
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 8:</strong> Norfolk &amp; Colonial Williamsburg, Virginia</h2></td> 
-                               </tr> 
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 9:</strong> Morehead City &amp; New Bern, North Carolina</h2></td> 
-                               </tr> 
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 10:</strong> Charleston, South Carolina</h2></td> 
-                               </tr>  
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 11:</strong> Savannah, Georgia</h2></td> 
-                               </tr>  
-                               <tr> 
-                                <td style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 12:</strong> At Sea</h2></td> 
-                               </tr> 
-                               <tr> 
-                                <td align="left" style="padding:0;Margin:0;padding-top:15px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:14px;font-style:normal;font-weight:normal;color:#e0e0e0"><strong>Day 13:</strong> Miami, Florida - Disembarkation</h2></td> 
-                               </tr> 
-                       </table>
-                               <tr> 
-
-                                <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;background-color: #ffffff;"width="100%"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:24px;color:#808080;font-size:16px;background-color: #ffffff;">&nbsp;<br>
-                                    SH Vega<br>
-                                    Halifax - Miami<br></p>
-                                    
-                                    </td> 
-                                 </tr> 
-                                 <tr> 
-                                    <td align="center" style="padding:0;Margin:0"> 
-              
-                                     <!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#764e9f;background:#764e9f;border-width:0px;display:inline-block;border-radius:0px;width:auto;mso-hide:all"><a href="https://www.swanhellenic.com/ship/vega-2" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:12px;border-style:solid;border-color:#764e9f;border-width:10px 20px 10px 20px;display:inline-block;background:#764e9f;border-radius:0px;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-weight:bold;font-style:normal;line-height:14px;width:auto;text-align:center">Ship Information</a></span> 
-                                     <!--<![endif]--></td> 
-                                   </tr> 
-                            <!-- Divider : BEGIN -->
-
-                                 <td align="center" style="padding:0;Margin:0;padding-top:0px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:24px;color:#808080;font-size:16px">&nbsp;<br>
-
-                                     <em>(Includes your first night's hotel stay in Nova Scotia)</em></p>
-                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:24px;color:#808080;font-size:16px; ">13-Days | October 9, 2022<br><strong><span style="font-size:16px">From <span style="color:#e9ab60">$6,149*</span></span></strong></p></td> 
-                                 </tr> 
-                                 
-                               
-                               <tr> 
-                                <td align="center" style="padding:0;Margin:0"> 
-          
-                                 <!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#764e9f;background:#764e9f;border-width:0px;display:inline-block;border-radius:0px;width:auto;mso-hide:all"><a href="https://www.swanhellenic.com/cruise/vega-halifax-miami-2022-oct-21?seats=2?utm_campaign=tradeHISTORIC-SEAPORTS_07-06-2022&amp;utm_medium=email&amp;utm_source=mindbox" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:12px;border-style:solid;border-color:#764e9f;border-width:10px 20px 10px 20px;display:inline-block;background:#764e9f;border-radius:0px;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-weight:bold;font-style:normal;line-height:14px;width:auto;text-align:center">BOOK NOW</a></span> 
-                                 <!--<![endif]-->
-                           
-                                </td> 
-                               </tr>  
-                         <tr> 
-                          <td align="center" style="padding:0;Margin:0;padding-top:25px"><h2 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#004155"><strong>Discover the Coastal Ports of North America</strong></h2></td> 
-                         </tr> 
-                         <tr> 
-                          <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom: 5px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:24px;color:#000000;font-size:15px">From the rugged coastline of Canada to the rocky and lighthouse speckled coast of Maine down to the flat and beautiful white sun filled beaches of Miami, and all the coastal ports inbetween. Enjoy this 13 day coastal port cruise.</p></td> 
-                         </tr> 
-                       
-    
-                       </tbody>
-            </table></td> 
-                               
-                       <!-- Divider : BEGIN -->
-                            <tr class="trbgwhite">
-                          <td style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px; text-align: center; font-family:roboto, helvetica neue, helvetica, arial, sans-serif; color: #808080;"><p><br><hr></hr></p></td>
-                            </tr>
-                        <!-- Divider  : END -->
-    
-        <!-- CTA More Itineraries Link : BEGIN -->
-          <tr>
-            <td>
-                <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: auto; max-width: 350px;padding-top: 50px;padding-bottom: 50px">
-              <tbody>
-                <tr>
-                  <td class="button-td" style="border-radius: 0px; background: #482F56; text-align: center;"><a class="button-a" href="https://www.swanhellenic.com/cruises?guests=2&page=1?utm_campaign=tradeHISTORIC-SEAPORTS-06027&amp;utm_medium=email&amp;utm_source=mindbox"  target="_blank" style="background: #482F56; border: 15px solid #482F56; padding: 0 20px; color: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;">VIEW ALL ITINERARIES</a></td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-        </tr>
-    
-        <!-- CTA More Itineraries Link : END -->
-    
-                     </tr> 
-                   </tbody></table> 
-                   <!--[if mso]></td></tr></table><![endif]--></td> 
-                 </tr> 
-                   
-             <!-- Itinerary: END -->
-          
-     
-             <!-- Divider : BEGIN -->
-        <tr class="trbgwhite">
-          <td style="padding-left: 20px; padding-right: 20px; text-align: center; font-family:roboto, helvetica neue, helvetica, arial, sans-serif; color: #808080;"><p><hr></hr></p></td>
-        </tr>
-            <!-- Divider  : END -->
-                  
- 
-                   </tbody></table></center></td> 
-                 </tr> 
-    
-    
-                   <!-- What's Included : BEGIN --> 
-                   
-                   <tr> 
-                  <td class="esdev-adapt-off" align="center" bgcolor="#ffffff" style="Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px;padding-top:30px;background-color:#ffffff;" > 
-                   <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                     <tbody><tr> 
-                      <td align="left" style="padding:0;Margin:0;width:560px"> 
-                       <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                         <tbody><tr> 
-                          <td align="center" style="padding:0;Margin:0;padding-left:30px;padding-right:30px"><h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;font-size:28px;font-style:normal;font-weight:normal;color:#004155;text-align:center"><strong>What's Included in Your Expedition</strong></h1></td> 
-                         </tr> 
-                         <tr> 
-                         </tr> 
-                         <tr> 
-                          <td align="center" class="es-m-p15r es-m-p15l" style="padding:0;Margin:0;padding-top:10px;padding-left:30px;padding-right:30px"> 
-                           <ul> 
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">Group return transfers from the airport to the cruise port (via our included accommodation)</li> 
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">One night pre-cruise accommodation with breakfast in a 4/5-star hotel</li> 
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">All meals onboard </li> 
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">24-hour room service</li> 
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">Coffee, tea, soft drinks and selected alcoholic beverages available 24-hours per day</li> 
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">Lecture programmes by our experienced expedition team and guest speakers</li>
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">Selected expedition activities led by our expedition team</li> 
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">Standard WiFi</li> 
-                            <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:19px;Margin-bottom:15px;color:#000000;font-size:14px">Onboard gratuities and port taxes</li> 
-                           </ul>
-                           </td> 
-                         </tr> 
-                         
-                       </tbody></table></td> 
-                     </tr> 
-                   </tbody></table></td> 
-                 </tr> 
-                   
-    
-     
-       <!-- Past guest discount : BEGIN -->
-          <tr>
-            <td class="full-width-image"><a href="https://swanhellenic.com" target="_blank"><img src="https://i2.mindbox.cloud/eml/24668/131274/2.jpg" width="600" alt="Swan Hellenic" border="0" align="center" style="width: 100%; max-width: 600px; height: auto;"></a></td>
-          </tr>
-          <!-- Past guest discount : END -->
-        <!-- CONTACT INFO : BEGIN -->
-        <tr class="trbggrey" style="background-color: #f7f7f7; border-bottom: 1px solid #C4C4C4;">
-          <td style="text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 25px 40px 25px 40px;"><p style="font-weight: bold; color: #482f56; font-size: 27px; line-height: 20px; text-align: center; font-family:Chap Regular;">For reservations or additional information please call:</p>
-            
-              <p><span style="font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #9d79c3; font-weight: bold; text-decoration: underline;"><a style="color:#e9ac60; text-decoration: underline;" href="tel:+18005376777">+1 (800) 537 6777</a> </span></p>
-                
-              <!--  CONTACT INFO CTA : BEGIN -->
-            <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: auto; max-width: 350px;">
-              <tbody>
-                <tr>
-                  <td class="button-td" style="border-radius: 0px; background: #482F56; text-align: center;"><a class="button-a" href="https://www.swanhellenic.com/partners?utm_source=mindbox&amp;utm_medium=email&amp;utm_campaign=HISTORIC-SEAPORTS-06027-22USTrade" target="_blank" style="background: #482F56; border: 15px solid #482F56; padding: 0 10px; color: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;">REGISTER AS A TRAVEL PARTNER</a></td>
-                </tr>
-                <!--  CONTACT INFO CTA: END -->
-              </tbody>
-            </table></td>
-        </tr>
-    
-        <!-- CONTACT INFO : END --> 
-    
-    
-         
-    
-    </table>
-        <!-- Email Body : END -->
-    
-    <!-- Email Footer SoMe : BEGIN -->
-    
-        <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color: #004155;">
-          <tbody>
-            <tr>
-              <td style="padding-top: 10px;"><table width="200" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color: #004155; max-width:250px;">
-                  <tbody>
-                    <tr>
-                      <td align="center"><a href="https://www.facebook.com/swanhellenic"><i alt="Facebook" style="display:block;" class="fa-2x fa-brands fa-facebook" style="height: 24; width: 24;"></a></td>
-                      <td align="center"><a href="https://www.youtube.com/user/swanhellenic"><i alt="YouTube" style="display:block;" height="28px" width="24px" class="fa-2x fa-brands fa-youtube"></a></td>
-                      <td align="center"><a href="https://www.instagram.com/swanhelleniccruises"><i alt="Instagram" style="display:block;" height="24" width="24" class="fa-2x fa-brands fa-instagram"></a></td>
-                      <td align="center"><a href="https://www.linkedin.com/company/swan-hellenic-limited/"><i alt="RSS" style="display:block;" height="24" width="24" class="fa-2x fa-brands fa-twitter social-btn"></a></td>
+                            padding: 10px;
+                          "
+                          class="border rounded text-white fw-bold"
+                          href="https://www.swanhellenic.com/cruises?guests=2&page=1%253Futm_campaign&amp;utm_medium=email&amp;utm_source=mindbox"
+                          >View all our Itineraries</a
+                        >
+                      </td>
                     </tr>
-                  </tbody>
-                </table></td>
-            </tr>
-          </tbody>
-        </table>
-    
-        <!-- Email Footer SoMe : END -->
-    
-        <!-- Email Footer : BEGIN -->
-        <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color: #004155;">
-          <tr>
-            <td style="padding-top: 20px; padding-bottom:20px; padding-left:40px; padding-right:40px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #FFFFFF;"> <p>© 2022 Swan Hellenic. All Rights Reserved.<br>Poseidonos, 1 Ledra Business Centre, Egkomi, 2406, Nicosia, Cyprus</p>
-         <p style="text-align: justify;">Offer valid for new bookings made on select  sailings. Cruise fares shown on the Swan Hellenic website (www.swanhellenic.com) include the discounted rate based on two people sharing. Zero single supplement applies to all cruises. Suites are excluded from the promotion. Other restrictions apply. </p>   
-      
-    
-    <p style="text-align: justify;">For our general booking terms and conditions, visit <a href="https://www.swanhellenic.com/" style="color: #FFFFFF">www.swanhellenic.com</a>. Promoter reserves the right to cancel, suspend and/or modify this promotion, if any fraud, technical failures, a change in applicable law or any other factor beyond Promoter's reasonable control impairs proper functioning of this promotion, as determined by Promoter in its sole discretion. Promoter reserves the right to correct errors or omissions and to adjust all fares, prior to booking. Promotion is time-limited and subject to availability. Promoter is the Ship Operator of the applicable cruise which shall be Swan Hellenic Ltd incorp in England and Wales with no. HE390668 reg office Swan Hellenic Travel Poseidonos, 1 Ledra Business Centre, Egkomi, 2406, Nicosia, Cyprus.
-     </p>
-              
-              <a href="${ Message.UnsubscribeLink }" target="_blank" style="font-family: Arial, sans-serif; color: #FFFFFF; font-size: 12px; line-height: 17px; text-decoration: underline;"> unsubscribe </a> </td>
-          </tr>
-        </table>
-        <!-- Email Footer : END -->
-    
-      </center>
-      </td>
-    
+                    <tr>
+                      <td
+                        style="
+                          font-family: sans-serif;
+                          font-size: 14px;
+                          vertical-align: top;
+                        "
+                        valign="top"
+                      >
+                        <p
+                          style="
+                            font-family: sans-serif;
+                            font-size: 18px;
+                            font-weight: normal;
+                            margin: 0;
+                            margin-top: 20px;
+                            margin-bottom: 15px;
+                          "
+                          class="fw-bold text-white"
+                        >
+                          Dear Travel Partner
+                        </p>
+                    <td>
+                        <p
+                            class="text-wrap text-white"
+                            style="
+                            font-family: sans-serif;
+                            font-size: 14px;
+                            font-weight: normal;
+                            margin: 0;
+                            margin-top: 40px;
+                            margin-left: 40px;
+                            margin-bottom: 20px;
+                            "
+                        >
+                        Invite your clients to sail with us to visit America’s
+                        Historic Seaports. The voyage starts with an overnight
+                        in Nova Scotia then sails through New England where
+                        guests will view the Fall Foliage and visit the
+                        charming ports of Bar Harbor, Gloucester, and Newport.
+                        Continuing down the East Coast reliving history with
+                        visits to New York, Norfolk, Charleston and more.
+                        Joining the voyage will be guest lecturers
+                        specializing in US History including the Civil War. We
+                        are offering 20% commission on this voyage for a
+                        limited time and as always, there are no NCFs or
+                        additional taxes.
+                        </p>
+                    </td>
+                    <tr>
+                        <td 
+                        >
+                      <img class="border" style="position: relative; top: -275px; border-radius: 50%;" src="https://swanhellenic.filecamp.com/static/thumbs/63K3XJRYZ7V63wML-thumb.jpg" alt="eating fish in shutterstock">  
+                    </td>
+                    </tr>
+                        <table
+                          role="presentation"
+                          border="0"
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="btn btn-primary"
+                          style="
+                            border-collapse: separate;
+                            mso-table-lspace: 0pt;
+                            mso-table-rspace: 0pt;
+                            box-sizing: border-box;
+                            width: 100%;
+                          "
+                          width="100%"
+                        >
+                          <tbody>
+                            <tr>
+                              <td
+                                align="left"
+                                style="
+                                  font-family: sans-serif;
+                                  font-size: 14px;
+                                  vertical-align: top;
+                                  padding-bottom: 15px;
+                                "
+                                valign="top"
+                              >
+                                <table
+                                  role="presentation"
+                                  border="0"
+                                  cellpadding="0"
+                                  cellspacing="0"
+                                  style="
+                                    border-collapse: separate;
+                                    mso-table-lspace: 0pt;
+                                    mso-table-rspace: 0pt;
+                                    width: auto;
+                                  "
+                                >
+                                  <tbody>
+                                    <tr>
+                                      <td
+                                        style="
+                                          font-family: sans-serif;
+                                          font-size: 14px;
+                                          vertical-align: top;
+                                          border-radius: 5px;
+                                          text-align: center;
+                                          background-color: #3498db;
+                                        "
+                                        valign="top"
+                                        align="center"
+                                        bgcolor="#3498db"
+                                      >
+                                        <a
+                                          href="http://htmlemail.io"
+                                          target="_blank"
+                                          style="
+                                            border: solid 1px #3498db;
+                                            border-radius: 5px;
+                                            box-sizing: border-box;
+                                            cursor: pointer;
+                                            display: inline-block;
+                                            font-size: 14px;
+                                            font-weight: bold;
+                                            margin: 0;
+                                            padding: 12px 25px;
+                                            text-decoration: none;
+                                            text-transform: capitalize;
+                                            background-color: #3498db;
+                                            border-color: #3498db;
+                                            color: #ffffff;
+                                          "
+                                          >Call To Action</a
+                                        >
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <p
+                          style="
+                            font-family: sans-serif;
+                            font-size: 14px;
+                            font-weight: normal;
+                            margin: 0;
+                            margin-bottom: 15px;
+                          "
+                        >
+                          This is a really simple email template. Its sole
+                          purpose is to get the recipient to click the button
+                          with no distractions.
+                        </p>
+                        <p
+                          style="
+                            font-family: sans-serif;
+                            font-size: 14px;
+                            font-weight: normal;
+                            margin: 0;
+                            margin-bottom: 15px;
+                          "
+                        >
+                          Good luck! Hope it works.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- END MAIN CONTENT AREA -->
+            </table>
+            <!-- END CENTERED WHITE CONTAINER -->
+
+            <!-- START FOOTER -->
+            <div
+              class="footer"
+              style="
+                clear: both;
+                margin-top: 10px;
+                text-align: center;
+                width: 100%;
+              "
+            >
+              <table
+                role="presentation"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                style="
+                  border-collapse: separate;
+                  mso-table-lspace: 0pt;
+                  mso-table-rspace: 0pt;
+                  width: 100%;
+                "
+                width="100%"
+              >
+                <tr>
+                  <td
+                    class="content-block"
+                    style="
+                      font-family: sans-serif;
+                      vertical-align: top;
+                      padding-bottom: 10px;
+                      padding-top: 10px;
+                      color: #999999;
+                      font-size: 12px;
+                      text-align: center;
+                    "
+                    valign="top"
+                    align="center"
+                  >
+                    <span
+                      class="apple-link"
+                      style="
+                        color: #999999;
+                        font-size: 12px;
+                        text-align: center;
+                      "
+                      >Company Inc, 3 Abbey Road, San Francisco CA 94102</span
+                    >
+                    <br />
+                    Don't like these emails?
+                    <a
+                      href="http://i.imgur.com/CScmqnj.gif"
+                      style="
+                        text-decoration: underline;
+                        color: #999999;
+                        font-size: 12px;
+                        text-align: center;
+                      "
+                      >Unsubscribe</a
+                    >.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="content-block powered-by"
+                    style="
+                      font-family: sans-serif;
+                      vertical-align: top;
+                      padding-bottom: 10px;
+                      padding-top: 10px;
+                      color: #999999;
+                      font-size: 12px;
+                      text-align: center;
+                    "
+                    valign="top"
+                    align="center"
+                  >
+                    Powered by
+                    <a
+                      href="http://htmlemail.io"
+                      style="
+                        color: #999999;
+                        font-size: 12px;
+                        text-align: center;
+                        text-decoration: none;
+                      "
+                      >HTMLemail</a
+                    >.
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- END FOOTER -->
+          </div>
+        </td>
+        <td
+          style="font-family: sans-serif; font-size: 14px; vertical-align: top"
+          valign="top"
+        >
+          &nbsp;
+        </td>
       </tr>
-    
     </table>
-</body>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
